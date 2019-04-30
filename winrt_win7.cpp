@@ -230,13 +230,6 @@ int32_t WINRT_CALL WINRT_RoGetActivationFactory(void* classId, winrt::guid const
         return winrt::hresult_invalid_argument(L"classId").to_abi();
     }
 
-    if (starts_with(name, L"Windows."))
-    {
-        using os_RoGetActivationFactory = int32_t WINRT_CALL(void* classId, winrt::guid const& iid, void** factory) noexcept;
-        static auto os = reinterpret_cast<os_RoGetActivationFactory*>(GetProcAddress(WINRT_LoadLibraryW(L"combase.dll"), "RoGetActivationFactory"));
-        return os(classId, iid, factory);
-    }
-
     std::wstring library_name{ name.substr(0, position) };
     library_name += L".dll";
     HMODULE library = WINRT_LoadLibraryW(library_name.c_str());
