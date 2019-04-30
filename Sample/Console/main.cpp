@@ -12,7 +12,7 @@ IAsyncAction RunAsync()
     ComponentA::Class a;
     hstring name_a = co_await a.GetName();
 
-    ComponentA::Class b;
+    ComponentB::Class b;
     hstring name_b = co_await b.GetName();
 
     printf("%ls %ls\n", name_a.c_str(), name_b.c_str());
