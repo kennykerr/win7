@@ -1,8 +1,6 @@
-#include <windows.h>
-#include <roapi.h>
 #include <restrictederrorinfo.h>
-#include <Unknwn.h>
 #include <winrt/base.h>
+#include <filesystem>
 
 // Note: this implementation intentionally avoids using any C++ standard library features like new/malloc/atomic
 // to ensure that the runtime behavior is ABI stable.
@@ -171,6 +169,29 @@ namespace
     {
         return 0 == value.compare(0, match.size(), match);
     }
+
+    std::filesystem::path get_module_path()
+    {
+        std::wstring path(100, L'?');
+        DWORD actual_size{};
+
+        while (true)
+        {
+            actual_size = GetModuleFileNameW(nullptr, path.data(), 1 + static_cast<uint32_t>(path.size()));
+
+            if (actual_size < 1 + path.size())
+            {
+                path.resize(actual_size);
+                break;
+            }
+            else
+            {
+                path.resize(path.size() * 2, L'?');
+            }
+        }
+
+        return path;
+    }
 }
 
 extern "C"
@@ -230,7 +251,9 @@ int32_t WINRT_CALL WINRT_RoGetActivationFactory(void* classId, winrt::guid const
         return winrt::hresult_invalid_argument(L"classId").to_abi();
     }
 
-    std::wstring library_name{ name.substr(0, position) };
+    auto library_name = get_module_path();
+    library_name.remove_filename();
+    library_name /= name.substr(0, position);
     library_name += L".dll";
     HMODULE library = WINRT_LoadLibraryW(library_name.c_str());
 

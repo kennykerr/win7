@@ -13,5 +13,13 @@
         <ClCompile Include="..\..\winrt_win7.cpp">
             <PrecompiledHeader>NotUsing</PrecompiledHeader>
         </ClCompile>
+        <Reference Include="ComponentA">
+            <HintPath>$(OutDir)ComponentA\ComponentA.winmd</HintPath>
+            <IsWinMDFile>true</IsWinMDFile>
+        </Reference>
+        <Reference Include="ComponentB">
+            <HintPath>$(OutDir)ComponentB\ComponentB.winmd</HintPath>
+            <IsWinMDFile>true</IsWinMDFile>
+        </Reference>
     </ItemGroup>
 </Project>
