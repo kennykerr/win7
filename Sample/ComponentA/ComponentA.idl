@@ -3,6 +3,6 @@ namespace ComponentA
     runtimeclass Class
     {
         Class();
-        Windows.Foundation.IAsyncOperation<String> GetName();
+        Windows.Foundation.IAsyncOperation<String> GetNameAsync();
     }
 }

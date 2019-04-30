@@ -307,7 +307,7 @@ int32_t WINRT_CALL WINRT_CoIncrementMTAUsage(void** cookie) noexcept
     return E_NOTIMPL;
 }
 
-int32_t WINRT_CALL WINRT_RoGetAgileReference(uint32_t options, winrt::guid const& iid, void* object, void** reference) noexcept
+int32_t WINRT_CALL WINRT_RoGetAgileReference(uint32_t /*options*/, winrt::guid const& /*iid*/, void* /*object*/, void** reference) noexcept
 {
     *reference = nullptr;
     return E_NOTIMPL;
@@ -396,22 +396,22 @@ wchar_t const* WINRT_CALL WINRT_WindowsGetStringRawBuffer(void* string, uint32_t
     return reinterpret_cast<wchar_t const*>(handle + 1);
 }
 
-int32_t WINRT_CALL WINRT_WindowsPreallocateStringBuffer(uint32_t length, wchar_t** charBuffer, void** bufferHandle) noexcept
+int32_t WINRT_CALL WINRT_WindowsPreallocateStringBuffer(uint32_t /*length*/, wchar_t** charBuffer, void** bufferHandle) noexcept
 {
     *charBuffer = nullptr;
     *bufferHandle = nullptr;
 
-    return S_OK;
+    return E_NOTIMPL;
 }
 
-int32_t WINRT_CALL WINRT_WindowsDeleteStringBuffer(void* bufferHandle) noexcept
+int32_t WINRT_CALL WINRT_WindowsDeleteStringBuffer(void* /*bufferHandle*/) noexcept
 {
-    return S_OK;
+    return E_NOTIMPL;
 }
 
-int32_t WINRT_CALL WINRT_WindowsPromoteStringBuffer(void* bufferHandle, void** string) noexcept
+int32_t WINRT_CALL WINRT_WindowsPromoteStringBuffer(void* /*bufferHandle*/, void** string) noexcept
 {
-    return S_OK;
-
+    *string = nullptr;
+    return E_NOTIMPL;
 }
 

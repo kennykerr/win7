@@ -7,7 +7,7 @@ namespace winrt::ComponentA::implementation
     {
         Class() = default;
 
-        Windows::Foundation::IAsyncOperation<hstring> GetName() const;
+        Windows::Foundation::IAsyncOperation<hstring> GetNameAsync() const;
     };
 }
 namespace winrt::ComponentA::factory_implementation

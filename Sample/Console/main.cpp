@@ -8,15 +8,15 @@ using namespace Windows::Foundation;
 
 IAsyncAction RunAsync()
 {
-    puts("Running C++/WinRT on Windows 7");
+    puts("\nRunning C++/WinRT on Windows 7");
 
-    ComponentA::Class a;
-    hstring name_a = co_await a.GetName();
+    ComponentA::Class a_object;
+    hstring a_name = co_await a_object.GetNameAsync();
+    printf("\nLoading %ls\n", a_name.c_str());
 
-    ComponentB::Class b;
-    hstring name_b = co_await b.GetName();
-
-    printf("\n%ls %ls\n", name_a.c_str(), name_b.c_str());
+    ComponentB::Class b_object;
+    hstring b_name = co_await b_object.GetNameAsync();
+    printf("\nLoading %ls\n", b_name.c_str());
 }
 
 int main()

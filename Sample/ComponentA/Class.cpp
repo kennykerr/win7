@@ -4,7 +4,7 @@
 
 namespace winrt::ComponentA::implementation
 {
-    Windows::Foundation::IAsyncOperation<hstring> Class::GetName() const
+    Windows::Foundation::IAsyncOperation<hstring> Class::GetNameAsync() const
     {
         co_return L"ComponentA";
     }
