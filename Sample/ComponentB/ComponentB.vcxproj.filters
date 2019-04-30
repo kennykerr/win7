@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Class.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Class.h" />
+    <ClInclude Include="pch.h">
+      <Filter>Build</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="exports.def">
+      <Filter>Build</Filter>
+    </None>
+    <None Include="packages.config">
+      <Filter>Build</Filter>
+    </None>
+    <None Include="PropertySheet.props">
+      <Filter>Build</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="ComponentB.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Build">
+      <UniqueIdentifier>{bbc79133-9647-44b7-91fa-3ba2ba5fb54e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
