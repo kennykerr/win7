@@ -40,16 +40,16 @@ namespace
         {
             if (0 == InterlockedDecrement(&m_references))
             {
-                VirtualFree(this, 0, MEM_RELEASE);
+                WINRT_VERIFY(HeapFree(GetProcessHeap(), 0, this));
             }
         }
 
         static auto create(wchar_t const* value, uint32_t size)
         {
-            auto handle = static_cast<hstring_handle*>(VirtualAlloc(
-                nullptr,
-                sizeof(hstring_handle) + (size + 1) * sizeof(wchar_t),
-                MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE));
+            auto handle = static_cast<hstring_handle*>(HeapAlloc(
+                GetProcessHeap(),
+                0,
+                sizeof(hstring_handle) + (size + 1) * sizeof(wchar_t)));
 
             if (handle)
             {
