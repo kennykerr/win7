@@ -1,3 +1,1 @@
-Note that I'm planning on adding support for Windows 7 directly to C++/WinRT. 
-
-The technique demonstrated in this sample is unsupported but may be useful for research.
+C++/WinRT now supports building a single binary that can run on Windows 7 as well as Windows 10.
