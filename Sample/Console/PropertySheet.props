@@ -10,9 +10,6 @@
         <BuildMacro Include="CppWinRTVerbosity">
             <Value>$(CppWinRTVerbosity)</Value>
         </BuildMacro>
-        <ClCompile Include="..\..\winrt_win7.cpp">
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-        </ClCompile>
         <Reference Include="ComponentA">
             <HintPath>$(OutDir)ComponentA\ComponentA.winmd</HintPath>
             <IsWinMDFile>true</IsWinMDFile>

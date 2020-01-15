@@ -10,8 +10,5 @@
         <BuildMacro Include="CppWinRTVerbosity">
             <Value>$(CppWinRTVerbosity)</Value>
         </BuildMacro>
-        <ClCompile Include="..\..\winrt_win7.cpp">
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-        </ClCompile>
     </ItemGroup>
 </Project>
